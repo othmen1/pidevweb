@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:leaf="http://java.sun.com/jsf/composite/jsf2leaf"
+	template="/template/template.xhtml" xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui">
+
+
+	<ui:define name="content">
+		<section class="contact-area section-padding-100-0">
+			<div class="map-area">
+				<leaf:mapAdvanced map="#{branchBean.returnMap()}" />
+
+			</div>
+		</section>
+	</ui:define>
+</ui:composition>

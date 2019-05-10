@@ -1,0 +1,61 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	template="/template/template.xhtml" xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui">
+
+	<ui:define name="content">
+
+		<section class="news-area section-padding-100">
+			<div class="container">
+				<div class="row">
+					<ui:repeat var="nw" value="#{claimBean.returnClaims()}">
+
+						<!-- Single News Area -->
+						<div class="col-12 col-lg-8">
+
+							<!-- Single Blog Area -->
+							<div class="single-blog-area mb-70">
+								<div class="blog-content">
+									<span> <p:outputLabel
+											value="#{nw.object}" />
+									</span>
+									<div class="blog-meta">
+										<a class="post-author"> <img
+											src="../../resources/img/core-img/pencil.png" alt="" /> <h:outputText
+												value="#{nw.dateSend.toString().subSequence(0,10)}" />
+										</a> <a class="post-date"> <img
+											src="../../resources/img/core-img/calendar.png" alt="" /> <h:outputText
+												value="#{nw.dateSend.toString().subSequence(11,16)}" />
+										</a>
+									</div>
+									<p>
+										<h:outputText value="#{nw.description}" />
+									</p>
+									<h:form>
+									<h:panelGroup rendered="#{nw.state.equals('Answred')}">
+										<div class="text-success">
+											<h:commandButton class="btn credit-btn mt-30" value="Show admin answer"
+											 action="#{claimBean.showAnswer(nw)}"/>
+										</div>
+									</h:panelGroup>
+									<h:panelGroup rendered="#{nw.state.equals('NotAnswred')}">
+										<div class="text-success">
+											<h:commandButton class="btn credit-btn mt-30" value="Edit this claim"
+											 action="#{claimBean.editClaim(nw)}"/>
+										</div>
+									</h:panelGroup>
+									</h:form>
+								</div>
+							</div>
+						</div>
+
+
+					</ui:repeat>
+				</div>
+			</div>
+		</section>
+	</ui:define>
+</ui:composition>

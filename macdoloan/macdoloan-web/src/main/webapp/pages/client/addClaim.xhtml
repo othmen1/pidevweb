@@ -1,0 +1,65 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	template="/template/template.xhtml" xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui">
+
+
+	<ui:define name="content">
+		<div class="map-area">
+			<div class="contact---area">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-lg-8">
+							<!-- Contact Area -->
+							<div class="contact-form-area contact-page">
+								<h4 class="mb-50">Send us your claim</h4>
+
+								<h:form>
+									<div class="row">
+										<div class="col-12">
+											<div class="form-group">
+												<h:selectOneMenu class="form-control"
+													value="#{claimBean.object}">
+
+													<f:selectItem itemLabel="Application"
+														itemValue="Application" rendered="#{!claimBean.object.equals('Application')}" />
+													<f:selectItem itemLabel="Agency" itemValue="Agency" rendered="#{!claimBean.object.equals('Agency')}" />
+													<f:selectItem itemLabel="Loan" itemValue="Loan" rendered="#{!claimBean.object.equals('Loan')}" />
+													<f:selectItem itemLabel="Staff" itemValue="Staff" rendered="#{!claimBean.object.equals('Staff')}" />
+													<f:selectItem itemLabel="User" itemValue="User" rendered="#{!claimBean.object.equals('User')}" />
+												</h:selectOneMenu>
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<h:inputTextarea class="form-control"
+													placeholder="Your description here .."
+													value="#{claimBean.description}" />
+											</div>
+										</div>
+										<h:panelGroup rendered="#{claimBean.returnAbility()}">
+										<div class="col-12">
+											<h:commandButton class="btn credit-btn mt-30" value="Send claim"
+												action="#{claimBean.addClaim(loginBean.user)}" />
+										</div>
+										</h:panelGroup>
+										<h:panelGroup rendered="#{!claimBean.returnAbility()}">
+										<div class="col-12">
+										<h:commandButton class="btn credit-btn mt-30" value="You've reached the limit try at #{claimBean.returnTime()}"
+												disabled="true" />
+										</div>
+										</h:panelGroup>
+									</div>
+								</h:form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</ui:define>
+</ui:composition>
