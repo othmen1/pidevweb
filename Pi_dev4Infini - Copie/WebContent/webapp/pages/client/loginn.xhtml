@@ -1,0 +1,41 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template_login/template_login.xhtml">
+
+	<ui:define name="content">
+		<link rel="stylesheet" href="../../resources/css/stylelogin.css" />
+		<script src="../../resources/js/login.js"></script>
+		<section class="newsletter-area section-padding-100 bg-img jarallax"
+			style="background-image: url(&quot;../../resources/img/cash-human-hand-and-stop-watch.jpg;);">
+			<div class="container">
+
+				<div class="row justify-content-center">
+
+					<div class="col-12 col-sm-10 col-lg-8">
+
+						<div class="nl-content text-center">
+							<h2>YOU NEED TO SIGN IN !</h2>
+							<h:form id="form">
+								<h:panelGrid columns="2">
+									<h:outputText value="Login (Email)"  />
+									<h:inputText value="#{loginBean.login}" />
+									<h:outputText value="Mot de passe" />
+									<h:inputSecret value="#{loginBean.password}" />
+									<h:commandButton id="btn" value="Connexion"
+										action="#{loginBean.doLogin()}" />
+									<h:message for="btn" />
+								</h:panelGrid>
+							</h:form>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+	</ui:define>
+</ui:composition>

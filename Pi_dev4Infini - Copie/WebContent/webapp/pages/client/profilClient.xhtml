@@ -1,0 +1,385 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/template.xhtml">
+
+	<ui:define name="content">
+
+		<style type="text/css">
+a:link {
+	color: orange;
+	text-decoration: underline;
+}
+
+/* visited link */
+a:visited {
+	color: blue;
+	text-decoration: underline;
+}
+
+/* mouse over link */
+a:hover {
+	color: orange;
+	text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+	color: blue;
+	text-decoration: underline;
+}
+</style>
+		<script type="text/javascript">
+function Hide (addr) { document.getElementById(addr).style.visibility = "hidden";	}
+function Show (addr) { document.getElementById(addr).style.visibility = "visible";	}
+
+function toggle(anId)
+{
+	if (document.getElementById(anId).style.visibility == "hidden")	{	Show(anId);	}
+	else															{	Hide(anId);	}
+}
+
+window.onload = function () { Hide("foo");	
+Hide("cancel")
+};
+
+
+</script>
+
+
+
+		<section class="breadcrumb-area bg-img bg-overlay b n"
+			style="background-image: url(&quot;../../resources/img/paydayloans_cover_16x9.jpg&quot;);">
+
+			<div class="container h-100">
+
+				<div class="row h-100 align-items-center">
+
+					<div class="col-12">
+
+						<div class="breadcrumb-content">
+
+							<h2>Profil</h2>
+							<nav aria-label="breadcrumb">
+
+								<ol class="breadcrumb">
+
+									<li class="breadcrumb-item"><a href="#">Home</a></li>
+
+									<li class="breadcrumb-item active" aria-current="page">Profil</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ##### Breadcrumb Area End ##### -->
+		<!-- ##### Contact Area Start ##### -->
+		<section class="contact-area section-padding-100-0">
+
+			<div class="container">
+
+				<div class="row">
+					<!-- Single Contact Area -->
+
+					<div class="col-12 col-lg-4">
+
+						<div class="single-contact-content d-flex align-items-center">
+
+							<div class="icon">
+								<img src="../../resources/img/core-img/pencil.png" alt="" />
+							</div>
+
+							<div class="contact">
+								<a href="#" onclick="Show('foo');Show('cancel');Hide('info1');Hide('info2');#{profileBean.displayUser(loginBean.client)}">Update</a>
+							</div>
+
+						</div>
+						
+						<div id="cancel" style="text-align: right">
+								<a href="#" onclick="Hide('foo'); Hide('cancel');Show('info1');Show('info2')" >Cancel</a>
+							</div>
+
+
+						<div class="single-contact-area mb-100" id="foo" >
+							<!-- Contact Area -->
+
+							<div class="contact-advisor2">
+
+								<h4 class="mb-50">Update informations</h4>
+								<h:form>
+
+									<div class="row">
+
+										<div class="col-lg-6">
+
+											<div class="form-group">
+												<h:inputText type="text" class="form-control" id="firstname"
+													placeholder="First Name" value="#{profileBean.firstname}"/>
+											</div>
+										</div>
+
+										<div class="col-lg-6">
+
+											<div class="form-group">
+												<h:inputText type="text" class="form-control" id="lastname"
+													placeholder="Last Name" value="#{profileBean.lastname}" />
+											</div>
+										</div>
+
+										<div class="col-lg-6">
+
+											<div class="form-group">
+												<h:inputText type="Email" class="form-control" id="email"
+													placeholder="Email" value="#{profileBean.email}" />
+											</div>
+										</div>
+
+										<div class="col-lg-6">
+
+											<div class="form-group">
+												<h:inputText type="text" class="form-control" id="login"
+													placeholder="Login" value="#{profileBean.login}"/>
+											</div>
+										</div>
+										<div class="col-lg-6">
+
+											<div class="form-group">
+												<h:inputText type="number" class="form-control" id="salary"
+													placeholder="Salary" value="#{profileBean.salary}" />
+											</div>
+										</div>
+										
+										<div class="col-lg-6">
+
+											<div class="form-group">
+												<h:inputText type="text" class="form-control" id="job"
+													placeholder="Job" value="#{profileBean.job}"/>
+											</div>
+										</div>
+										
+										<div class="col-lg-6">
+
+											<div class="form-group">
+												<h:inputText type="text" class="form-control" id="status"
+													placeholder="Status" value="#{profileBean.status}"/>
+											</div>
+										</div>
+										
+										<div class="col-lg-6">
+
+											<div class="form-group">
+												<h:inputText type="number" class="form-control" id="nbrchild"
+													placeholder="Child Nbr" value="#{profileBean.nbrchild}" />
+											</div>
+										</div>
+										
+										<div class="col-lg-6">
+
+											<div class="form-group">
+												<h:inputText type="text" class="form-control" id="adress"
+													placeholder="Adress" value="#{profileBean.adress}"/>
+											</div>
+										</div>
+										
+										<div class="col-lg-6">
+
+											<div class="form-group">
+												<h:inputText type="tel" class="form-control" id="phone" 
+													placeholder="Phone " value="#{profileBean.phone}" />
+											</div>
+										</div>
+
+										<div class="col-12">
+											<h:commandButton   value = "Update" action ="#{profileBean.updateUser(loginBean.client.id)}"/>
+										</div>
+									</div>
+								</h:form>
+							</div>
+						</div>
+
+					</div>
+
+
+
+					<!-- Single Contact Area -->
+
+					<div class="col-12 col-lg-4">
+
+						<div class="single-contact-area mb-100" id="info1">
+
+							<div class="contact-advisor">
+
+								<h5>Personal Informations</h5>
+								<!-- Single Advisor -->
+
+								<div class="single-advisor d-flex align-items-center">
+
+									<!-- div class="advisor-img">
+										<img src="../../resources/img/bg-img/25.jpg" alt="" />
+									</div-->
+
+									<div class="">
+										<p style="color: white; font-size: 1.2rem">
+											Login:
+
+											<h:outputText
+												style="line-height: 180%;letter-spacing: 2px;font-size: 1.5rem;color: white; text-shadow: 0 0 2px #fefcc9, 1px -1px 3px #feec85, -2px -2px 4px #ffae34, 2px -4px 5px #ec760c, -2px -6px 6px #cd4606, 0 -8px 7px #973716, 1px -9px 8px #451b0e"
+												value="#{loginBean.user.login}" />
+										</p>
+									</div>
+								</div>
+								<!-- Single Advisor -->
+
+								<div class="single-advisor d-flex align-items-center">
+
+									<!-- div class="advisor-img">
+										<img src="../../resources/img/bg-img/25.jpg" alt="" />
+									</div-->
+
+									<div class="">
+										<p style="color: white; font-size: 1.2rem">
+											CIN:
+
+											<h:outputText
+												style="line-height: 150%;letter-spacing: 2px;font-size: 1rem;color: white; text-shadow: 0 0 2px #fefcc9, 1px -1px 3px #feec85, -2px -2px 4px #ffae34, 2px -4px 5px #ec760c, -2px -6px 6px #cd4606, 0 -8px 7px #973716, 1px -9px 8px #451b0e"
+												value="#{loginBean.user.cin}" />
+										</p>
+									</div>
+								</div>
+
+								<div class="single-advisor d-flex align-items-center">
+
+									<!-- div class="advisor-img">
+										<img src="../../resources/img/bg-img/25.jpg" alt="" />
+									</div-->
+
+									<div class="">
+										<p style="color: white; font-size: 1.2rem">
+											Salary:
+
+											<h:outputText
+												style="line-height: 150%;letter-spacing: 2px;font-size: 1rem;color: white; text-shadow: 0 0 2px #fefcc9, 1px -1px 3px #feec85, -2px -2px 4px #ffae34, 2px -4px 5px #ec760c, -2px -6px 6px #cd4606, 0 -8px 7px #973716, 1px -9px 8px #451b0e"
+												value="#{profileBean.salary}" />
+										</p>
+									</div>
+								</div>
+
+								<div class="single-advisor d-flex align-items-center">
+
+									<!-- div class="advisor-img">
+										<img src="../../resources/img/bg-img/25.jpg" alt="" />
+									</div-->
+
+									<div class="">
+										<p style="color: white; font-size: 1.2rem">
+											Status:
+
+											<h:outputText
+												style="line-height: 150%;letter-spacing: 2px;font-size: 1rem;color: white; text-shadow: 0 0 2px #fefcc9, 1px -1px 3px #feec85, -2px -2px 4px #ffae34, 2px -4px 5px #ec760c, -2px -6px 6px #cd4606, 0 -8px 7px #973716, 1px -9px 8px #451b0e"
+												value="#{profileBean.status}" />
+										</p>
+									</div>
+								</div>
+								<div class="single-advisor d-flex align-items-center">
+
+									<!-- div class="advisor-img">
+										<img src="../../resources/img/bg-img/25.jpg" alt="" />
+									</div-->
+
+									<div class="">
+										<p style="color: white; font-size: 1.2rem">
+											Job:
+
+											<h:outputText
+												style="line-height: 150%;letter-spacing: 2px;font-size: 1rem;color: white; text-shadow: 0 0 2px #fefcc9, 1px -1px 3px #feec85, -2px -2px 4px #ffae34, 2px -4px 5px #ec760c, -2px -6px 6px #cd4606, 0 -8px 7px #973716, 1px -9px 8px #451b0e"
+												value="#{profileBean.job}" />
+										</p>
+									</div>
+								</div>
+								<div class="single-advisor d-flex align-items-center">
+
+									<!-- div class="advisor-img">
+										<img src="../../resources/img/bg-img/25.jpg" alt="" />
+									</div-->
+
+									<div class="">
+										<p style="color: white; font-size: 1.2rem;">
+											BirthDate:
+
+											<h:outputText
+												style="line-height: 180%;letter-spacing: 2px;font-size: 1.5rem;color: white; text-shadow: 0 0 2px #fefcc9, 1px -1px 3px #feec85, -2px -2px 4px #ffae34, 2px -4px 5px #ec760c, -2px -6px 6px #cd4606, 0 -8px 7px #973716, 1px -9px 8px #451b0e"
+												value="#{loginBean.user.birthDate.day}/#{loginBean.user.birthDate.month}/#{loginBean.user.birthDate.year+1900}" />
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Single Contact Area -->
+
+					<div class="col-12 col-lg-4">
+
+						<div class="single-contact-area mb-100"  id="info2">
+
+							<div class="contact--area contact-page">
+								<!-- Contact Content -->
+
+								<div class="contact-content">
+
+									<h5>Contact Informations</h5>
+									<!-- Single Contact Content -->
+
+									<div class="single-contact-content d-flex align-items-center">
+
+										<div class="icon">
+											<img src="../../resources/img/core-img/location.png" alt="" />
+										</div>
+
+										<div class="text">
+
+											<h:outputText value="#{loginBean.user.adress}"
+												style="letter-spacing: 2px;font-size: 1.5rem;color: white; text-align= center" />
+										</div>
+									</div>
+									<!-- Single Contact Content -->
+
+									<div class="single-contact-content d-flex align-items-center">
+
+										<div class="icon">
+											<img src="../../resources/img/core-img/call.png" alt="" />
+										</div>
+
+										<div class="text">
+
+											<h:outputText value="#{loginBean.user.phone}"
+												style="letter-spacing: 2px;font-size: 1.5rem;color: white; text-align= center" />
+										</div>
+									</div>
+									<!-- Single Contact Content -->
+
+									<div class="single-contact-content d-flex align-items-center">
+
+										<div class="icon">
+											<img src="../../resources/img/core-img/message2.png" alt="" />
+										</div>
+
+										<div class="text">
+
+											<h:outputText value="#{loginBean.user.adresseMail}"
+												style="letter-spacing: 2px;font-size: 0.5rem;color: white; text-align= center" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+</section>
+
+	</ui:define>
+</ui:composition>

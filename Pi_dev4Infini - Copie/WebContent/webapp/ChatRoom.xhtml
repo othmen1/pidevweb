@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name='viewport'
+	content='minimum-scale=1.0, initial-scale=1.0,
+	width=device-width, maximum-scale=1.0, user-scalable=no' />
+	
+	 
+<script type="text/javascript" src="chatroom.js"></script>
+<script type="text/javascript">
+var wsUri = 'ws://localhost:18080/macdoloan-web/chat';
+var proxy = CreateProxy(wsUri);
+
+document.addEventListener("DOMContentLoaded", function(event) {
+	console.log(document.getElementById('loginPanel'));
+	proxy.initiate({
+		loginPanel: document.getElementById('loginPanel'),
+		msgPanel: document.getElementById('msgPanel'),
+		txtMsg: document.getElementById('txtMsg'),
+		txtLogin: document.getElementById('txtLogin'),
+		msgContainer: document.getElementById('msgContainer')
+	});
+});
+
+</script>
+	
+<title>Maissa-Chat</title>
+
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"></meta>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"></meta>
+<meta name="description" content="Responsive Bootstrap 4 and web Application ui kit."></meta>
+<link rel="icon" href="favicon.ico" type="image/x-icon"> </link>
+<link rel="stylesheet" href="http://localhost:18080/macdoloan-web/TemplateAdmin/plugins/bootstrap/css/bootstrap.min.css"></link>
+<link rel="stylesheet" href="http://localhost:18080/macdoloan-web/TemplateAdmin/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css"></link>
+<link rel="stylesheet" href="http://localhost:18080/macdoloan-web/TemplateAdmin/plugins/morrisjs/morris.min.css" ></link>
+<link rel="stylesheet" href="http://localhost:18080/macdoloan-web/TemplateAdmin/assets/css/main.css"></link>
+<link rel="stylesheet" href="http://localhost:18080/macdoloan-web/TemplateAdmin/assets/css/color_skins.css"></link>
+</head>
+
+<body>
+
+
+<section class="content home">
+        <div class="block-header">
+            <center>
+  <div id="container" class="p-3 mb-2 bg-warning text-dark">
+		<div id="loginPanel">
+			<div id="infoLabel" class="font-weight-bold"> Commencez une discussion avec votre médecin : </div>
+			<div style="padding: 10px;">
+				<input id="txtLogin" type="text" class="loginInput"
+					onkeyup="proxy.login_keyup(event)" />
+				<button type="button" class="btn btn-outline-danger" onclick="proxy.login()">Login</button>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row no_padding title__block nothing no-margin">
+				<div id="msgPanel" style="display: none">
+					<div id="msgContainer" style="overflow: auto;"></div>
+					<div id="msgController">
+						<textarea id="txtMsg" title="Enter to send message"
+							onkeyup="proxy.sendMessage_keyup(event)"
+							style="height: 50px; width: 400%"></textarea>
+						<button class="btn btn-outline-danger" style="height: 50px; width: 100px" type="button"
+							onclick="proxy.logout()">Logout</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</center>
+        </div>
+        <div class="p-3 mb-2 bg-light text-dark">
+          
+        </div>
+    </section>
+
+ <div id="wrapper">
+	     <ui:insert name="Hearder"></ui:insert>
+	    <ui:include src="http://localhost:18080/macdoloan-web/TemplateAdmin/Header.xhtml" />
+	    
+	    <ui:insert name="Menu"></ui:insert>
+	    <ui:include src="http://localhost:18080/macdoloan-web/TemplateAdmin/Menu.xhtml" />
+	    
+	    
+		</div>
+
+	
+	
+	<div><div id="page-wrapper">
+		<ui:insert name="content"></ui:insert>
+		
+		 <ui:insert name="Footer"></ui:insert>
+	    <ui:include src="http://localhost:18080/macdoloan-web/TemplateAdmin/Footer.xhtml" />
+	    
+		</div></div>
+		
+	
+<script src="http://localhost:18080/macdoloan-web/TemplateAdmin/assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) --> 
+<script src="http://localhost:18080/macdoloan-web/TemplateAdmin/assets/bundles/vendorscripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
+
+<script src="http://localhost:18080/macdoloan-web/TemplateAdmin/assets/bundles/morrisscripts.bundle.js"></script>
+<script src="http://localhost:18080/macdoloan-web/TemplateAdmin/assets/bundles/jvectormap.bundle.js"></script> <!-- JVectorMap Plugin Js -->
+<script src="http://localhost:18080/macdoloan-web/TemplateAdmin/assets/bundles/knob.bundle.js"></script> <!-- Jquery Knob, Count To, Sparkline Js -->
+
+<script src="http://localhost:18080/macdoloan-web/TemplateAdmin/assets/bundles/mainscripts.bundle.js"></script>
+<script src="http://localhost:18080/macdoloan-web/TemplateAdmin/assets/js/pages/index.js"></script>
+
+</body>
+	</html>
+</ui:composition>
