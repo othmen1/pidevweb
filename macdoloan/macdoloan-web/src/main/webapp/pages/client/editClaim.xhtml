@@ -1,0 +1,57 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	template="/template/template.xhtml" xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui">
+
+
+	<ui:define name="content">
+		<div class="map-area">
+			<div class="contact---area">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-lg-8">
+							<!-- Contact Area -->
+							<div class="contact-form-area contact-page">
+								<h4 class="mb-50">Edit your claim</h4>
+
+								<h:form>
+									<div class="row">
+										<div class="col-12">
+											<div class="form-group">
+												<h:selectOneMenu class="form-control"
+													value="#{claimBean.object}">
+
+													<f:selectItem itemLabel="Application"
+														itemValue="Application" />
+													<f:selectItem itemLabel="Agency" itemValue="Agency" />
+													<f:selectItem itemLabel="Loan" itemValue="Loan" />
+													<f:selectItem itemLabel="Staff" itemValue="Staff" />
+													<f:selectItem itemLabel="User" itemValue="User" />
+												</h:selectOneMenu>
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<h:inputTextarea class="form-control"
+													placeholder="Your description here .."
+													value="#{claimBean.description}" />
+											</div>
+										</div>
+										<div class="col-12">
+											<h:commandButton class="btn credit-btn mt-30" value="Update this claim"
+												action="#{claimBean.updateClaim()}" />
+										</div>
+									</div>
+								</h:form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</ui:define>
+</ui:composition>

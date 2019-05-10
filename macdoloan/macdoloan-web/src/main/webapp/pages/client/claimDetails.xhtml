@@ -1,0 +1,63 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	template="/template/template.xhtml" xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui">
+
+	<ui:define name="content">
+		<section class="post-news-area section-padding-100-0">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-lg-8">
+						<div class="comment_area clearfix mb-100">
+							<h4 class="mb-50">
+								<h:outputText value="#{claimBean.cc.object}" />
+							</h4>
+							<ol>
+								<!-- Single Comment Area -->
+								<li class="single_comment_area">
+									<!-- Comment Content -->
+									<div class="comment-content d-flex">
+									<div class="comment-author">
+													<img src="../../resources/img/bg-img/12.jpg" alt="author"/>
+												</div>
+										<!-- Comment Meta -->
+										<div class="comment-meta">
+											<div class="d-flex">
+												<a href="#" class="post-author"><h:outputText value="#{claimBean.cc.client.firstName} #{claimBean.cc.client.lastName} (you)"/></a> <a
+													href="#" class="reply"><h:outputText value="#{claimBean.cc.dateSend.toString().subSequence(0,10)} at #{claimBean.cc.dateSend.toString().subSequence(11,16)}" /> </a> 
+											</div>
+											<p><h:outputText value="#{claimBean.cc.description}" /></p>
+										</div>
+									</div>
+									<ol class="children">
+										<li class="single_comment_area">
+											<!-- Comment Content -->
+											<div class="comment-content d-flex">
+												<div class="comment-author">
+													<img src="../../resources/img/bg-img/12.jpg" alt="author"/>
+												</div>
+												<!-- Comment Meta -->
+												<div class="comment-meta">
+													<div class="d-flex">
+														<a href="#" class="post-author"><h:outputText value="#{claimBean.cc.answer.admin.firstName} #{claimBean.cc.answer.admin.lastName} (Admin)" /></a> <a
+															href="#" class="reply"><h:outputText value="#{claimBean.cc.answer.dateSend.toString().subSequence(0,10)} at #{claimBean.cc.answer.dateSend.toString().subSequence(11,16)}"/> </a>
+													</div>
+													<p><h:outputText value="#{claimBean.cc.answer.description}" /></p>
+												</div>
+											</div>
+										</li>
+									</ol>
+								</li>
+
+							</ol>
+						</div>
+					</div>
+				</div>
+					
+			</div>
+		</section>
+	</ui:define>
+</ui:composition>
