@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	template="/template/template.xhtml" xmlns:b="http://bootsfaces.net/ui">
+
+
+
+	<ui:define name="content">
+		<!-- start banner Area -->
+
+<br /><br />
+<br />
+<br />
+		<form>
+			<div class="row">
+
+				<ui:repeat var="nw" value="#{penalityBean.penalitys}">
+
+					<!-- Single Service Area -->
+					<div class="col-12 col-md-6 col-lg-4">
+						<div class="single-service-area d-flex mb-100 wow fadeInUp"
+							data-wow-delay="200ms"
+							style="visibility: visible; animation-delay: 200ms; animation-name: fadeInUp;">
+							<div class="icon">
+								<i class="icon-profits"></i>
+							</div>
+							<div class="text">
+								<h5>
+									<h:outputText value="#{nw.id}" />
+								</h5>
+								<p>
+									<h:outputText value="#{nw.amount}" />
+								</p>
+									<h5>
+									<h:outputText value="#{nw.refunddatenddate}" />
+								</h5>
+							</div>
+						</div>
+					</div>
+
+
+
+					<!-- Single Service Area -->
+
+
+
+				</ui:repeat>
+			</div>
+
+		</form>
+		<!-- End download Area -->
+	</ui:define>
+
+
+</ui:composition>
